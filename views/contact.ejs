@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <% include partials/head %>
+  <body>
+    <section class="page container">
+    <div class="header">
+    <% include partials/header %>
+    </div>
+    <div class="title">
+      <h2>Contact Us</h2>
+
+    </div>
+    <div class="col-md-6">
+
+      <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="pwd">age:</label>
+      <input type="number" class="form-control" id="age">
+    </div>
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <input type="text" class="form-control" id="role">
+    </div>
+    <div class="form-group">
+      <div class="col-sm-10 pull-right">
+        <button  class="btn btn-default btn-submit pull-right" >Submit</button>
+      </div>
+    </div>
+    <div class="alert  col-md-12" role="alert"><h1 id="result"></h1></div>
+  </div>
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+        <% for(var i=0; i<users.length; i++) {%>
+      <tr>
+
+         <td><%= users[i].name %></td>
+         <td><%= users[i].age %></td>
+         <td><%= users[i].role %></td>
+         <td><button onclick="deleteUser('<%= users[i]._id %>')" class="delete-user">DELETE</button></td>
+
+      </tr>
+        <% } %>
+    </table>
+  </div>
+
+    </section>
+    <% include partials/footer %>
+    <% include partials/foot %>
+  </body>
+</html>
